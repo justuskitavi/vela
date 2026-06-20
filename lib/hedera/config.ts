@@ -1,22 +1,11 @@
 export type HederaNetwork = "testnet" | "mainnet"
+import { requireEnv } from "@/utils/helpers"
 
 export interface HederaConfig {
     network: HederaNetwork
     accountId: string 
     privateKey: string
 }
-
- function requireEnv(name: string): string {
-    const value = process.env[name]
-
-    if (!value || value.trim() === "") {
-        throw new Error(
-            `Missing required environment var: ${name}` 
-        )        
-    }
-
-    return value.trim()
- }
 
  export function getHederaConfig():
  HederaConfig {
