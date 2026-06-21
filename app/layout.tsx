@@ -1,17 +1,19 @@
 import "./globals.css";
 
-
+export const metadata = {
+  title: "Vela",
+  description:
+    "A policy-governed AI agent that autonomously purchases API data using HBAR on Hedera.",
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

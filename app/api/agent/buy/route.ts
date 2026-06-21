@@ -1,6 +1,3 @@
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 import { sendHbar } from "@/lib/hedera/transfer";
 import { runPolicies } from "@/lib/policies/types";

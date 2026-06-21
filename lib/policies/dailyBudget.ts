@@ -14,7 +14,7 @@ function getDailyBudgetHbar(): number {
 
 
 function getTodayKey(): string {
-  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD" in UTC
+  const today = new Date().toISOString().slice(0, 10);
   return `daily-spend:${today}`;
 }
 

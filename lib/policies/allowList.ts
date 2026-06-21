@@ -1,13 +1,11 @@
+import { VENDORS } from "@/lib/vendors";
 import type { Policy, PolicyContext, PolicyResult } from "./types";
 
 
 function getAllowedVendorAccounts(): string[] {
-    const raw = process.env.POLICY_ALLOWED_VENDOR_ACCOUNTS ?? ""
-
-    return raw 
-    .split(",")
-    .map((id) => id.trim())
-    .filter((id) => id.length > 0)
+    return VENDORS
+    .map((vendor) => vendor.hederaAccountId.trim())
+    .filter((id) => id.length > 0 && !id.includes("YOUR_VENDOR_ACCOUNT"))
 }
 
 export const AllowListPolicy : Policy = {
@@ -27,7 +25,7 @@ export const AllowListPolicy : Policy = {
             return {
                 allowed : false,
                 policyName : this.name,
-                reason : `This vendow is not in the approved vendor list.`
+                reason : `This vendor is not in the approved vendor list.`
             }
          }
 
